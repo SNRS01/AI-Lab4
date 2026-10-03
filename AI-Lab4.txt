@@ -1,0 +1,62 @@
+7 ?- house = house.
+true. % Identical constants
+
+8 ?- house = abc.
+false. % Different constants
+
+9 ?- edge(a,b) = edge(C,b).
+C = a. % They have the  same name and the same number of arguments
+
+10 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.  % Each variable matches the constant in its position
+
+11 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.  % Each variable matches the constant in its position
+
+12 ?- edge(A, f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h). % A takes a, and B takes the compound term
+
+13 ?- edge(A,A) = edge(b,c).
+false. % The same A will have to equal both b and c
+
+14 ?- edge(A,A) = edge(b,b).
+A = b. % Both variables will have the same value
+
+15 ?- A = B, B = f.
+A = B, B = f.  % A and B are linked, and B is bound to f, so both are f
+
+16 ?- A = B, B = f, A = e.
+false.  % A is already f through B, and f can't equal e
+
+
+% Task2
+
+17 ?- consult(['c:/Users/shmas/Downloads/Lab04_family_facts.pl'l).
+true.
+
+18 ?- female(X).
+X = sara ;
+X = nora.
+
+19 ?- male(_).
+true
+
+20 ?- parent (GP), parent (P, faisal).
+G = ali,
+P = muhammad .
+
+21?- parent (ahmed, D), female (D).
+false.
+
+22 ?- parent (ahmad, D), female (D).
+D = Sara ;
+D = nora.
+
+23 ?- parent(P, ahmad), parent (P, muhammad).
+P = ali.
+
+24 ?- male(khan), parent (P, khan), parent (P, nora).
+P = ahmad.
